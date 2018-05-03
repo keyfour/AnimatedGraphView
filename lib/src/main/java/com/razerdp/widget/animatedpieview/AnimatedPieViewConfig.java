@@ -9,7 +9,7 @@ import android.util.Pair;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 
-import com.razerdp.widget.animatedpieview.callback.OnPieSelectListener;
+import com.razerdp.widget.animatedpieview.callback.OnGraphSelectListener;
 import com.razerdp.widget.animatedpieview.data.IPieInfo;
 import com.razerdp.widget.animatedpieview.utils.Util;
 
@@ -93,7 +93,7 @@ public class AnimatedPieViewConfig {
     private boolean animPie = true;
     private boolean canTouch = true;
     private boolean animTouch = true;
-    private OnPieSelectListener mSelectListener;
+    private OnGraphSelectListener mSelectListener;
     @FocusAlpha
     private int focusAlphaType = DEFAULT_FOCUS_ALPHA_TYPE;
     private int focusAlpha = DEFAULT_FOCUS_ALPHA;
@@ -220,7 +220,7 @@ public class AnimatedPieViewConfig {
         return this;
     }
 
-    public <T extends IPieInfo> AnimatedPieViewConfig selectListener(OnPieSelectListener<T> selectListener) {
+    public <T extends IPieInfo> AnimatedPieViewConfig selectListener(OnGraphSelectListener<T> selectListener) {
         mSelectListener = selectListener;
         return this;
     }
@@ -415,7 +415,7 @@ public class AnimatedPieViewConfig {
         return animTouch;
     }
 
-    public OnPieSelectListener getSelectListener() {
+    public OnGraphSelectListener getSelectListener() {
         return mSelectListener;
     }
 
@@ -573,9 +573,9 @@ public class AnimatedPieViewConfig {
 
 
     /**
-     * @deprecated Use {@link #selectListener(OnPieSelectListener)} instead.
+     * @deprecated Use {@link #selectListener(OnGraphSelectListener)} instead.
      */
-    public <T extends IPieInfo> AnimatedPieViewConfig setOnPieSelectListener(OnPieSelectListener<T> listener) {
+    public <T extends IPieInfo> AnimatedPieViewConfig setOnPieSelectListener(OnGraphSelectListener<T> listener) {
         return selectListener(listener);
     }
 

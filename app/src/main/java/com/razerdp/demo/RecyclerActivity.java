@@ -16,7 +16,7 @@ import com.razerdp.animatedpieview.R;
 import com.razerdp.popup.PopupSetting;
 import com.razerdp.widget.animatedpieview.AnimatedPieView;
 import com.razerdp.widget.animatedpieview.AnimatedPieViewConfig;
-import com.razerdp.widget.animatedpieview.callback.OnPieSelectListener;
+import com.razerdp.widget.animatedpieview.callback.OnGraphSelectListener;
 import com.razerdp.widget.animatedpieview.data.IPieInfo;
 import com.razerdp.widget.animatedpieview.data.SimplePieInfo;
 import com.razerdp.widget.animatedpieview.utils.PLog;
@@ -166,7 +166,7 @@ public class RecyclerActivity extends AppCompatActivity implements View.OnClickL
                     pie.start();
                 }
             });
-            config.selectListener(new OnPieSelectListener<IPieInfo>() {
+            config.selectListener(new OnGraphSelectListener<IPieInfo>() {
                 @Override
                 public void onSelectPie(@NonNull IPieInfo pieInfo, boolean isFloatUp) {
                     tvPieDesc.setText(String.format(Locale.getDefault(),

@@ -8,7 +8,7 @@ import com.razerdp.widget.animatedpieview.data.IPieInfo;
  * Created by 大灯泡 on 2017/11/10.
  */
 
-public interface OnPieSelectListener<T extends IPieInfo> {
+public interface OnGraphSelectListener<T extends IPieInfo> {
     /**
      * 选中的回调
      *

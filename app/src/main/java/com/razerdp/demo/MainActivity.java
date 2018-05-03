@@ -15,7 +15,7 @@ import com.razerdp.animatedpieview.R;
 import com.razerdp.popup.PopupSetting;
 import com.razerdp.widget.animatedpieview.AnimatedPieView;
 import com.razerdp.widget.animatedpieview.AnimatedPieViewConfig;
-import com.razerdp.widget.animatedpieview.callback.OnPieSelectListener;
+import com.razerdp.widget.animatedpieview.callback.OnGraphSelectListener;
 import com.razerdp.widget.animatedpieview.data.IPieInfo;
 import com.razerdp.widget.animatedpieview.data.SimplePieInfo;
 import com.razerdp.widget.animatedpieview.utils.PLog;
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 .addData(new SimplePieInfo(0.6632297717331086, getColor("ff957de0")), true)
                 .addData(new SimplePieInfo(0.8226830459369171, getColor("FF446767")), true)
                 .splitAngle(0.9649368f)
-                .selectListener(new OnPieSelectListener() {
+                .selectListener(new OnGraphSelectListener() {
                     @Override
                     public void onSelectPie(@NonNull IPieInfo pieInfo, boolean isFloatUp) {
                         desc.setText(String.format(Locale.getDefault(),
