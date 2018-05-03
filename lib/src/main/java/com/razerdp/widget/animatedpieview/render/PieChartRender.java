@@ -17,7 +17,7 @@ import android.view.animation.Transformation;
 
 import com.razerdp.widget.animatedpieview.AnimatedPieViewConfig;
 import com.razerdp.widget.animatedpieview.IPieView;
-import com.razerdp.widget.animatedpieview.data.IPieInfo;
+import com.razerdp.widget.animatedpieview.data.GraphInfo;
 import com.razerdp.widget.animatedpieview.utils.AnimationCallbackUtils;
 import com.razerdp.widget.animatedpieview.utils.PLog;
 import com.razerdp.widget.animatedpieview.utils.Util;
@@ -105,7 +105,7 @@ public class PieChartRender extends BaseRender implements ITouchRender {
         //包裹数据并且计算总和
         double sum = 0;
         PieInfoWrapper preWrapper = null;
-        for (Pair<IPieInfo, Boolean> info : mConfig.getDatas()) {
+        for (Pair<GraphInfo, Boolean> info : mConfig.getDatas()) {
             sum += Math.abs(info.first.getValue());
             PieInfoWrapper wrapper = new PieInfoWrapper(info.first);
             wrapper.setAutoDesc(info.second);

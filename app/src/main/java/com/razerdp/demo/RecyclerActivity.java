@@ -17,8 +17,8 @@ import com.razerdp.popup.PopupSetting;
 import com.razerdp.widget.animatedpieview.AnimatedPieView;
 import com.razerdp.widget.animatedpieview.AnimatedPieViewConfig;
 import com.razerdp.widget.animatedpieview.callback.OnGraphSelectListener;
-import com.razerdp.widget.animatedpieview.data.IPieInfo;
-import com.razerdp.widget.animatedpieview.data.SimplePieInfo;
+import com.razerdp.widget.animatedpieview.data.GraphInfo;
+import com.razerdp.widget.animatedpieview.data.SimpleGraphInfo;
 import com.razerdp.widget.animatedpieview.utils.PLog;
 
 import java.util.ArrayList;
@@ -76,7 +76,7 @@ public class RecyclerActivity extends AppCompatActivity implements View.OnClickL
                 dataCount = 3;
             }
             for (int j = 0; j < dataCount; j++) {
-                config.addData(new SimplePieInfo(random.nextDouble(), randomColor()), random.nextBoolean());
+                config.addData(new SimpleGraphInfo(random.nextDouble(), randomColor()), random.nextBoolean());
             }
             //split angle
             config.splitAngle(random.nextBoolean() ? (float) (Math.random() * 2) : 0)
@@ -166,9 +166,9 @@ public class RecyclerActivity extends AppCompatActivity implements View.OnClickL
                     pie.start();
                 }
             });
-            config.selectListener(new OnGraphSelectListener<IPieInfo>() {
+            config.selectListener(new OnGraphSelectListener<GraphInfo>() {
                 @Override
-                public void onSelectPie(@NonNull IPieInfo pieInfo, boolean isFloatUp) {
+                public void onSelectPie(@NonNull GraphInfo pieInfo, boolean isFloatUp) {
                     tvPieDesc.setText(String.format(Locale.getDefault(),
                             "touch pie >>> {  value = %s;  color = %d;  desc = %s;  isFloatUp = %s; }",
                             pieInfo.getValue(), pieInfo.getColor(), pieInfo.getDesc(), isFloatUp));

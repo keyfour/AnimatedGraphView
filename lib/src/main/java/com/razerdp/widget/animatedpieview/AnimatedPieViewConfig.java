@@ -10,7 +10,7 @@ import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 
 import com.razerdp.widget.animatedpieview.callback.OnGraphSelectListener;
-import com.razerdp.widget.animatedpieview.data.IPieInfo;
+import com.razerdp.widget.animatedpieview.data.GraphInfo;
 import com.razerdp.widget.animatedpieview.utils.Util;
 
 import java.lang.annotation.Retention;
@@ -110,7 +110,7 @@ public class AnimatedPieViewConfig {
     private boolean strokeMode = true;
 
 
-    private List<Pair<IPieInfo, Boolean>> mDatas;
+    private List<Pair<GraphInfo, Boolean>> mDatas;
 
     public AnimatedPieViewConfig() {
         this(null);
@@ -220,7 +220,7 @@ public class AnimatedPieViewConfig {
         return this;
     }
 
-    public <T extends IPieInfo> AnimatedPieViewConfig selectListener(OnGraphSelectListener<T> selectListener) {
+    public <T extends GraphInfo> AnimatedPieViewConfig selectListener(OnGraphSelectListener<T> selectListener) {
         mSelectListener = selectListener;
         return this;
     }
@@ -314,11 +314,11 @@ public class AnimatedPieViewConfig {
     }
 
     //=============================================================data
-    public AnimatedPieViewConfig addData(@NonNull IPieInfo info) {
+    public AnimatedPieViewConfig addData(@NonNull GraphInfo info) {
         return addData(info, false);
     }
 
-    public AnimatedPieViewConfig addData(@NonNull IPieInfo info, boolean autoDesc) {
+    public AnimatedPieViewConfig addData(@NonNull GraphInfo info, boolean autoDesc) {
         if (info == null) {
             Log.e(TAG, "addData: pieinfo is null,abort add data");
             return this;
@@ -327,14 +327,14 @@ public class AnimatedPieViewConfig {
         return this;
     }
 
-    public List<Pair<IPieInfo, Boolean>> getDatas() {
+    public List<Pair<GraphInfo, Boolean>> getDatas() {
         return mDatas;
     }
 
-    public List<IPieInfo> getRawDatas() {
-        List<IPieInfo> result = new ArrayList<>();
+    public List<GraphInfo> getRawDatas() {
+        List<GraphInfo> result = new ArrayList<>();
         if (!Util.isListEmpty(mDatas)) {
-            for (Pair<IPieInfo, Boolean> data : mDatas) {
+            for (Pair<GraphInfo, Boolean> data : mDatas) {
                 result.add(data.first);
             }
         }
@@ -575,7 +575,7 @@ public class AnimatedPieViewConfig {
     /**
      * @deprecated Use {@link #selectListener(OnGraphSelectListener)} instead.
      */
-    public <T extends IPieInfo> AnimatedPieViewConfig setOnPieSelectListener(OnGraphSelectListener<T> listener) {
+    public <T extends GraphInfo> AnimatedPieViewConfig setOnPieSelectListener(OnGraphSelectListener<T> listener) {
         return selectListener(listener);
     }
 

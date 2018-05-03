@@ -16,8 +16,8 @@ import com.razerdp.popup.PopupSetting;
 import com.razerdp.widget.animatedpieview.AnimatedPieView;
 import com.razerdp.widget.animatedpieview.AnimatedPieViewConfig;
 import com.razerdp.widget.animatedpieview.callback.OnGraphSelectListener;
-import com.razerdp.widget.animatedpieview.data.IPieInfo;
-import com.razerdp.widget.animatedpieview.data.SimplePieInfo;
+import com.razerdp.widget.animatedpieview.data.GraphInfo;
+import com.razerdp.widget.animatedpieview.data.SimpleGraphInfo;
 import com.razerdp.widget.animatedpieview.utils.PLog;
 
 import java.util.Locale;
@@ -50,19 +50,19 @@ public class MainActivity extends AppCompatActivity {
         mAnimatedPieView = findViewById(R.id.animatedPieView);
         AnimatedPieViewConfig config = new AnimatedPieViewConfig();
         config.startAngle(0.9224089f)
-                .addData(new SimplePieInfo(0.11943538617599236, getColor("FF446767")), true)
-                .addData(new SimplePieInfo(0.41780274681129415, getColor("FFFFD28C")), true)
-                .addData(new SimplePieInfo(0.722165651192247, getColor("FFbb76b4")), true)
-                .addData(new SimplePieInfo(0.9184314356136125, getColor("FFFFD28C"), "长文字test"), false)
-                .addData(new SimplePieInfo(0.6028910840057398, getColor("ff2bbc80")), true)
-                .addData(new SimplePieInfo(0.6449620647212785, getColor("ff8be8ff")), true)
-                .addData(new SimplePieInfo(0.058853315195452116, getColor("fffa734d")), true)
-                .addData(new SimplePieInfo(0.6632297717331086, getColor("ff957de0")), true)
-                .addData(new SimplePieInfo(0.8226830459369171, getColor("FF446767")), true)
+                .addData(new SimpleGraphInfo(0.11943538617599236, getColor("FF446767")), true)
+                .addData(new SimpleGraphInfo(0.41780274681129415, getColor("FFFFD28C")), true)
+                .addData(new SimpleGraphInfo(0.722165651192247, getColor("FFbb76b4")), true)
+                .addData(new SimpleGraphInfo(0.9184314356136125, getColor("FFFFD28C"), "长文字test"), false)
+                .addData(new SimpleGraphInfo(0.6028910840057398, getColor("ff2bbc80")), true)
+                .addData(new SimpleGraphInfo(0.6449620647212785, getColor("ff8be8ff")), true)
+                .addData(new SimpleGraphInfo(0.058853315195452116, getColor("fffa734d")), true)
+                .addData(new SimpleGraphInfo(0.6632297717331086, getColor("ff957de0")), true)
+                .addData(new SimpleGraphInfo(0.8226830459369171, getColor("FF446767")), true)
                 .splitAngle(0.9649368f)
                 .selectListener(new OnGraphSelectListener() {
                     @Override
-                    public void onSelectPie(@NonNull IPieInfo pieInfo, boolean isFloatUp) {
+                    public void onSelectPie(@NonNull GraphInfo pieInfo, boolean isFloatUp) {
                         desc.setText(String.format(Locale.getDefault(),
                                 "touch pie >>> {\n  value = %s;\n  color = %d;\n  desc = %s;\n  isFloatUp = %s;\n }",
                                 pieInfo.getValue(), pieInfo.getColor(), pieInfo.getDesc(), isFloatUp));

@@ -4,19 +4,19 @@ package com.razerdp.widget.animatedpieview.data;
  * Created by 大灯泡 on 2017/11/7.
  */
 
-public class SimplePieInfo implements IPieInfo {
+public class SimpleGraphInfo implements GraphInfo {
     private double value;
     private int color;
     private String desc;
 
-    public SimplePieInfo() {
+    public SimpleGraphInfo() {
     }
 
-    public SimplePieInfo(double value, int color) {
+    public SimpleGraphInfo(double value, int color) {
         this(value, color, "");
     }
 
-    public SimplePieInfo(double value, int color, String desc) {
+    public SimpleGraphInfo(double value, int color, String desc) {
         this.value = value;
         this.color = color;
         this.desc = desc;

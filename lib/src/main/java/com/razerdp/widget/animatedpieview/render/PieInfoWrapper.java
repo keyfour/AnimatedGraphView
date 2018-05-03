@@ -5,8 +5,8 @@ import android.graphics.Path;
 import android.text.TextUtils;
 
 import com.razerdp.widget.animatedpieview.AnimatedPieViewConfig;
-import com.razerdp.widget.animatedpieview.data.IPieInfo;
-import com.razerdp.widget.animatedpieview.data.SimplePieInfo;
+import com.razerdp.widget.animatedpieview.data.GraphInfo;
+import com.razerdp.widget.animatedpieview.data.SimpleGraphInfo;
 import com.razerdp.widget.animatedpieview.utils.DegreeUtil;
 import com.razerdp.widget.animatedpieview.utils.PLog;
 
@@ -22,7 +22,7 @@ final class PieInfoWrapper implements Serializable {
 
     private final String id;
     private volatile boolean hasCached;
-    private final IPieInfo mPieInfo;
+    private final GraphInfo mPieInfo;
 
     //============= 绘制设置 =============
     private Paint mDrawPaint;
@@ -41,7 +41,7 @@ final class PieInfoWrapper implements Serializable {
     private PieInfoWrapper preWrapper;
     private PieInfoWrapper nextWrapper;
 
-    PieInfoWrapper(IPieInfo pieInfo) {
+    PieInfoWrapper(GraphInfo pieInfo) {
         if (pieInfo == null) {
             throw new NullPointerException("pieinfo must not be null");
         }
@@ -75,7 +75,7 @@ final class PieInfoWrapper implements Serializable {
         return this;
     }
 
-    public IPieInfo getPieInfo() {
+    public GraphInfo getPieInfo() {
         return mPieInfo;
     }
 
@@ -133,8 +133,8 @@ final class PieInfoWrapper implements Serializable {
         if (autoDesc) {
             //自动填充描述auto
             desc = String.format(config.getAutoDescStringFormat(), AnimatedPieViewConfig.sFormateRate.format((mPieInfo.getValue() / sum) * 100));
-            if (mPieInfo instanceof SimplePieInfo) {
-                ((SimplePieInfo) mPieInfo).setDesc(desc);
+            if (mPieInfo instanceof SimpleGraphInfo) {
+                ((SimpleGraphInfo) mPieInfo).setDesc(desc);
             }
         } else {
             desc = mPieInfo.getDesc();
